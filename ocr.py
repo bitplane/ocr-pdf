@@ -17,8 +17,6 @@ def extract_text(image: Image, dpi: int):
 
     regions = data['block_num']
 
-    print(data.keys())
-
     region_ids = set(regions)
 
     for region_id in region_ids:
@@ -41,6 +39,7 @@ def extract_text(image: Image, dpi: int):
             'y0': y0,
             'y1': y1,
         }
+
 
 def extract_pdf(pdf_bytes: bytes, dpi: int) -> dict:
     result = {}
