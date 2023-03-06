@@ -46,8 +46,8 @@ def extract_pdf(pdf_bytes: bytes, dpi: int) -> dict:
     for page, image in enumerate(pdf_to_img(pdf_bytes, dpi)):
         for box in extract_text(image, dpi):
             if page not in result:
-                result[page] = []
-            result[page].append(box)
+                result[page] = {"width": image.width, "height": image.height, "text": []}
+            result[page]["text"].append(box)
 
     return result
 
